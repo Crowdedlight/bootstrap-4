@@ -712,6 +712,9 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                         if (!this._hasTime() && !this._options.keepOpen && !this._options.inline && !this._options.allowMultidate) {
                             this.hide();
                         }
+
+                        // go to time selector - ugly fix of finding the button target
+                        $('span.far.fa-clock').click();
                         break;
                     }
                 case 'incrementHours':
