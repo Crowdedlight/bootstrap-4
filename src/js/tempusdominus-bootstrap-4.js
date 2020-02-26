@@ -44,12 +44,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
             }
         }
 
-        _spanIcon(icon) {
-            return $('<span>').append($('<i>').addClass(icon));
-        };
-        
         _getDatePickerTemplate() {
-            const headTemplate = $('<thead>').append($('<tr>').append($('<th>').addClass('prev').attr('data-action', 'previous').append(this._spanIcon(this._options.icons.previous))).append($('<th>').addClass('picker-switch').attr('data-action', 'pickerSwitch').attr('colspan', `${this._options.calendarWeeks ? '6' : '5'}`)).append($('<th>').addClass('next').attr('data-action', 'next').append(this._spanIcon(this._options.icons.next)))),
+            const headTemplate = $('<thead>').append($('<tr>').append($('<th>').addClass('prev').attr('data-action', 'previous').append($('<span>').addClass(this._options.icons.previous))).append($('<th>').addClass('picker-switch').attr('data-action', 'pickerSwitch').attr('colspan', `${this._options.calendarWeeks ? '6' : '5'}`)).append($('<th>').addClass('next').attr('data-action', 'next').append($('<span>').addClass(this._options.icons.next)))),
                 contTemplate = $('<tbody>').append($('<tr>').append($('<td>').attr('colspan', `${this._options.calendarWeeks ? '8' : '7'}`)));
 
             return [$('<div>').addClass('datepicker-days').append($('<table>').addClass('table table-sm').append(headTemplate).append($('<tbody>'))), $('<div>').addClass('datepicker-months').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())), $('<div>').addClass('datepicker-years').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone())), $('<div>').addClass('datepicker-decades').append($('<table>').addClass('table-condensed').append(headTemplate.clone()).append(contTemplate.clone()))];
@@ -65,8 +61,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.incrementHour
-                }).addClass('btn').attr('data-action', 'incrementHours').append(this._spanIcon(this._options.icons.up))));
-                middleRow.append($('<td>').append(this._spanIcon('timepicker-hour').attr({
+                }).addClass('btn').attr('data-action', 'incrementHours').append($('<span>').addClass(this._options.icons.up))));
+                middleRow.append($('<td>').append($('<span>').addClass('timepicker-hour').attr({
                     'data-time-component': 'hours',
                     'title': this._options.tooltips.pickHour
                 }).attr('data-action', 'showHours')));
@@ -74,7 +70,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.decrementHour
-                }).addClass('btn').attr('data-action', 'decrementHours').append(this._spanIcon(this._options.icons.down))));
+                }).addClass('btn').attr('data-action', 'decrementHours').append($('<span>').addClass(this._options.icons.down))));
             }
             if (this._isEnabled('m')) {
                 if (this._isEnabled('h')) {
@@ -86,8 +82,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.incrementMinute
-                }).addClass('btn').attr('data-action', 'incrementMinutes').append(this._spanIcon(this._options.icons.up))));
-                middleRow.append($('<td>').append(this._spanIcon('timepicker-minute').attr({
+                }).addClass('btn').attr('data-action', 'incrementMinutes').append($('<span>').addClass(this._options.icons.up))));
+                middleRow.append($('<td>').append($('<span>').addClass('timepicker-minute').attr({
                     'data-time-component': 'minutes',
                     'title': this._options.tooltips.pickMinute
                 }).attr('data-action', 'showMinutes')));
@@ -95,7 +91,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.decrementMinute
-                }).addClass('btn').attr('data-action', 'decrementMinutes').append(this._spanIcon(this._options.icons.down))));
+                }).addClass('btn').attr('data-action', 'decrementMinutes').append($('<span>').addClass(this._options.icons.down))));
             }
             if (this._isEnabled('s')) {
                 if (this._isEnabled('m')) {
@@ -107,8 +103,8 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.incrementSecond
-                }).addClass('btn').attr('data-action', 'incrementSeconds').append(this._spanIcon(this._options.icons.up))));
-                middleRow.append($('<td>').append(this._spanIcon('timepicker-second').attr({
+                }).addClass('btn').attr('data-action', 'incrementSeconds').append($('<span>').addClass(this._options.icons.up))));
+                middleRow.append($('<td>').append($('<span>').addClass('timepicker-second').attr({
                     'data-time-component': 'seconds',
                     'title': this._options.tooltips.pickSecond
                 }).attr('data-action', 'showSeconds')));
@@ -116,7 +112,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     href: '#',
                     tabindex: '-1',
                     'title': this._options.tooltips.decrementSecond
-                }).addClass('btn').attr('data-action', 'decrementSeconds').append(this._spanIcon(this._options.icons.down))));
+                }).addClass('btn').attr('data-action', 'decrementSeconds').append($('<span>').addClass(this._options.icons.down))));
             }
 
             if (!this.use24Hours) {
@@ -159,7 +155,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     tabindex: '-1',
                     'data-action': 'today',
                     'title': this._options.tooltips.today
-                }).append(this._spanIcon(this._options.icons.today))));
+                }).append($('<span>').addClass(this._options.icons.today))));
             }
             if (!this._options.sideBySide && this._hasDate() && this._hasTime()) {
                 let title, icon;
@@ -175,7 +171,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     tabindex: '-1',
                     'data-action': 'togglePicker',
                     'title': title
-                }).append(this._spanIcon(icon))));
+                }).append($('<span>').addClass(icon))));
             }
             if (this._options.buttons.showClear) {
                 row.push($('<td>').append($('<a>').attr({
@@ -183,7 +179,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     tabindex: '-1',
                     'data-action': 'clear',
                     'title': this._options.tooltips.clear
-                }).append(this._spanIcon(this._options.icons.clear))));
+                }).append($('<span>').addClass(this._options.icons.clear))));
             }
             if (this._options.buttons.showClose) {
                 row.push($('<td>').append($('<a>').attr({
@@ -191,7 +187,7 @@ const TempusDominusBootstrap4 = ($ => { // eslint-disable-line no-unused-vars
                     tabindex: '-1',
                     'data-action': 'close',
                     'title': this._options.tooltips.close
-                }).append(this._spanIcon(this._options.icons.close))));
+                }).append($('<span>').addClass(this._options.icons.close))));
             }
             return row.length === 0 ? '' : $('<table>').addClass('table-condensed').append($('<tbody>').append($('<tr>').append(row)));
         }
